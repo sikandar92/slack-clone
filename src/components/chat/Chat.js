@@ -7,7 +7,6 @@ import { selectRoomId } from '../../features/appSlice';
 import ChatInput from './ChatInput';
 import { useCollection, useDocument } from 'react-firebase-hooks/firestore';
 import { db } from '../../firebase';
-import { doc } from 'prettier';
 import Message from './Message';
 
 function Chat() {
@@ -48,7 +47,6 @@ function Chat() {
           <ChatMessages>
             {roomMessages?.docs.map((doc) => {
               const { message, timestamp, user, userImage } = doc.data();
-              console.log('message>>>>><<<<<<<<<<<', message);
               return (
                 <Message
                   key={doc.id}
@@ -112,7 +110,6 @@ const HeaderRight = styled.div`
     font-size: 16px;
   }
 `;
-// Chat header section
 
 const ChatBottom = styled.div``;
 const ChatMessages = styled.div``;
